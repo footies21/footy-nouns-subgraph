@@ -1,0 +1,47 @@
+specVersion: 0.0.4
+description: Subgraph for all things Footy Nouns
+repository: https://github.com/footies21/footy-nouns-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FootyNouns
+    network: arbitrum-goerli
+    source:
+      abi: FootyNouns
+      address: '0x174c4f8e422810CC808C08D34C0A5c759f45b661'
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: FootyNouns
+          file: ./abis/FootyNouns.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/mapping-FootyNouns.ts
+  - kind: ethereum
+    name: FootyNames
+    network: arbitrum-goerli
+    source:
+      abi: FootyNames
+      address: '0x0a4eFA4eB3354Ce07bF707A77eb56B119D126b43'
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ClubNamed
+        - FootyNamed
+      abis:
+        - name: FootyNames
+          file: ./abis/FootyNames.json
+      eventHandlers:
+        - event: ClubNamed(indexed address,indexed string)
+          handler: handleClubNamed
+        - event: FootyNamed(indexed address,indexed uint256,indexed string)
+          handler: handleFootyNamed
+      file: ./src/mapping-FootyNames.ts

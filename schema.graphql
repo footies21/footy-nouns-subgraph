@@ -1,0 +1,19 @@
+type FootyNoun @entity {
+  id: ID!
+  tokenId: BigInt!
+  owner: Bytes! # address
+  background: BigInt!
+  kit: BigInt!
+  head: BigInt!
+  glasses: BigInt!
+  number: BigInt!
+  name: String
+  club: FootyClub!
+}
+
+type FootyClub @entity {
+  id: ID!
+  owner: Bytes! # address
+  name: String
+  footyNouns: [FootyNoun!]! @derivedFrom(field: "club")
+}

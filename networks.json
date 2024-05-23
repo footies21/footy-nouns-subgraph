@@ -1,0 +1,18 @@
+{
+  "arbitrum-one": {
+    "FootyNouns": {
+      "address": "0x4C96226495E28AE2772CD5134608Ba6efbF88169"
+    },
+    "FootyNames": {
+      "address": "0x418aC49CF3f6138734EacfEfb18DA830F7c3a993"
+    }
+  },
+  "arbitrum-goerli": {
+    "FootyNouns": {
+      "address": "0x174c4f8e422810CC808C08D34C0A5c759f45b661"
+    },
+    "FootyNames": {
+      "address": "0x0a4eFA4eB3354Ce07bF707A77eb56B119D126b43"
+    }
+  }
+}

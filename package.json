@@ -1,0 +1,18 @@
+{
+  "name": "footy-nouns-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build:arbMainnet": "graph build --network arbitrum-one",
+    "build:arbGoerli": "graph build --network arbitrum-goerli",
+    "deploy:arbMainnet": "graph deploy --product hosted-service <org/subgraph>",
+    "deploy:arbGoerli": "graph deploy --product hosted-service <org/subgraph>",
+    "create-local": "graph create --node http://localhost:8020/ footy-nouns-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ footy-nouns-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 footy-nouns-subgraph"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.29.0",
+    "@graphprotocol/graph-ts": "0.26.0"
+  }
+}
